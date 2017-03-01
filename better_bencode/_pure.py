@@ -12,6 +12,7 @@ import sys
 
 
 if sys.version_info[0] == 2:
+    from future.types import newstr
     try:
         from cStringIO import StringIO
     except ImportError:
@@ -22,7 +23,7 @@ else:
 
 if sys.version_info[0] == 2:
     INTEGER_TYPES = (int, long)
-    BINARY_TYPES = (str, )
+    BINARY_TYPES = (str, newstr)
     int_to_binary = lambda val: str(val)
 else:
     INTEGER_TYPES = (int,)
